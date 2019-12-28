@@ -1,5 +1,4 @@
 from datetime import datetime
-from pprint import pprint
 
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -82,7 +81,7 @@ def createDbSet(osmNode):
         dbSet[u"comment"] = u""
     return dbSet
 
-CRED = credentials.Certificate("fb.creds")
+CRED = credentials.Certificate("../FireBase.creds")
 APP = firebase_admin.initialize_app(CRED)
 OSM = overpy.Overpass()
 DB = firestore.client()
