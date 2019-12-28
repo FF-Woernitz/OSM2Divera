@@ -74,13 +74,15 @@ def createDbSet(osmNode):
             comment += u"Durchmesser: {} <br>".format(val)
         if tag == "fire_hydrant:pressure":
             comment += u"Druck: {} <br>".format(val)
+        if tag == "water_tank:volume":
+            comment += u"Volumen: {} Liter<br>".format(val)
     if comment != "":
         dbSet[u"comment"] = comment[:-4].strip()
     else:
         dbSet[u"comment"] = u""
     return dbSet
 
-CRED = credentials.Certificate("../FireBase.creds")
+CRED = credentials.Certificate("fb.creds")
 APP = firebase_admin.initialize_app(CRED)
 OSM = overpy.Overpass()
 DB = firestore.client()
